@@ -32,6 +32,8 @@ CREATE TABLE roles (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE allEmployeeDirectory SELECT employee.id, employee.first_name, employee.last_name, employee.manager_id, roles.title, roles.salary, department.name FROM employee LEFT JOIN roles on employee.role_id = roles.id LEFT JOIN department on roles.department_id = department.id;
+
 -- Insert a set of records.
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Jocelyn", "Chang", 1, 1);
